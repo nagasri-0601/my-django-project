@@ -1,0 +1,106 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | NOIR</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+            <h2 class="title">Create a <span style="color:#6C63FF;">NOIR</span> Account</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error-msg">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <label>Username</label>
+                <input type="text" name="username" required class="input-field">
+
+                <label>Email</label>
+                <input type="email" name="email" required class="input-field">
+
+                <label>Password</label>
+                <input type="password" name="password" required class="input-field">
+
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" required class="input-field">
+
+                <button type="submit" class="btn-login">Signup</button>
+            </form>
+
+            <p class="register-link">
+                Already have an account?
+                <a href="{% url 'login' %}">Login here</a>
+            </p>
+
+            <p class="back-link">
+                <a href="/">← Back to Home</a>
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | NOIR</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+    <!-- ⭐ ADD THIS ONLY TO CENTER THE FORM -->
+    <style>
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;   /* full screen height */
+            background: #221f1fff;  /* optional soft bg */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ⭐ NEW WRAPPER FOR CENTERING -->
+    <div class="center-wrapper">
+
+    <div class="login-container">
+        <h2>Create a New Account</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label>Username</label><br>
+            <input type="text" name="username" required><br><br>
+            <label>Email</label><br>
+            <input type="email" name="email" required><br><br>
+            <label>Password</label><br>
+            <input type="password" name="password" required><br><br>
+            <label>Confirm Password</label><br>
+            <input type="password" name="confirm_password" required><br><br>
+            <button type="submit">signup</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+
+    </div> <!-- ⭐ CLOSE NEW WRAPPER -->
+
+</body>
+</html>

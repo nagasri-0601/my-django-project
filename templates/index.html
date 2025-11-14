@@ -1,0 +1,322 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR - Fashion Forward</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff3366;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="50,10 20,50 50,90 80,50" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="5" fill="url(#logoGrad)"/>
+                </svg>
+                <span class="logo-text">NOIR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#collections" class="nav-link">Collections</a></li>
+                <li><a href="#featured" class="nav-link">Featured</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+                {% comment %} <ul class="nav-links">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}" class="nav-cta">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" class="nav-cta">Login</a></li>
+            <li><a href="{% url 'signup' %}" class="nav-cta">signup</a></li>
+            {% endif %}
+            </ul> {% endcomment %}
+            {% comment %} </ul>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge">New Collection 2025</div>
+                <h1 class="hero-title">
+                    <span class="line"><span>Redefine</span></span>
+                    <span class="line"><span>Your <span class="accent">Style</span></span></span>
+                    <span class="line"><span>Revolution</span></span>
+                </h1>
+                <p class="hero-description">
+                    Discover our avant-garde collection where high fashion meets street culture. 
+                    Each piece tells a story of rebellion, elegance, and innovation.
+                </p>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <div class="hero-carousel">
+                        <div class="carousel-slide active">
+                            <img src="{% static 'images/noir-fashion-hero-01.avif' %}" alt="Fashion Model 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="{% static 'images/noir-fashion-hero-02.avif' %}" alt="Fashion Model 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="{% static 'images/noir-fashion-hero-03.avif' %}" alt="Fashion Model 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collections" id="collections">
+        <div class="section-header">
+            <h2 class="section-title">Latest Collections</h2>
+        </div>
+
+        <div class="grid" id="collectionsGrid">
+            <div class="collection-card" data-category="women">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/urban-edge.avif' %}" alt="Urban Edge Women's Collection">
+                </div>
+            </div>
+            <div class="collection-card" data-category="limited">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/midnight-luxe.avif' %}" alt="Midnight Luxe Limited Edition">
+                </div>
+            </div>
+            <div class="collection-card" data-category="men">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/neo-classic.avif' %}" alt="Neo Classic Men's Essentials">
+                </div>
+            </div>
+            <div class="collection-card" data-category="accessories">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/accent-pieces.avif' %}" alt="Accent Pieces Accessories">
+                </div>
+            </div>
+            <div class="collection-card" data-category="women">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/spring-bloom.avif' %}" alt="Spring Bloom Women's Spring">
+                </div>
+            </div>
+            <div class="collection-card" data-category="men">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/street-rebel.avif' %}" alt="Street Rebel Men's Streetwear">
+                </div>
+            </div>
+            <div class="collection-card" data-category="limited">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/avant-garde.avif' %}" alt="Avant Garde Art Meets Fashion">
+                </div>
+            </div>
+            <div class="collection-card" data-category="accessories">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/minimal-chic.avif' %}" alt="Minimal Chic Timeless Accessories">
+                </div>
+            {% comment %} </div> {% endcomment %}
+        {% comment %} </div>
+    </section>
+
+    <section class="featured" id="featured">
+        <div class="featured-container">
+            <div class="featured-image-section">
+                <div class="featured-image-grid">
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-01.avif' %}" alt="Fashion Collection Showcase">
+                    </div>
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-02.avif' %}" alt="Luxury Fashion Details">
+                    </div>
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-03.avif' %}" alt="Artisan Craftsmanship">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'index.js' %}"></script>
+</body>
+</html> {% endcomment %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR - Fashion Forward</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <a href="#home" class="logo-link">
+            <svg class="logo-svg" viewBox="0 0 100 100">
+                <polygon points="50,10 20,50 50,90 80,50" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                <circle cx="50" cy="50" r="5" fill="url(#logoGrad)"/>
+            </svg>
+            <span class="logo-text">NOIR</span>
+        </a>
+
+        <!-- MAIN NAVIGATION LINKS -->
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#collections" class="nav-link">Collections</a></li>
+            <li><a href="#featured" class="nav-link">Featured</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+
+            <!-- AUTH BUTTONS (SIDE BY SIDE) -->
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="nav-cta">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="nav-cta">Login</a></li>
+                <li><a href="{% url 'signup' %}" class="nav-cta">Signup</a></li>
+            {% endif %}
+        </ul>
+
+        <!-- MOBILE MENU ICON -->
+        <div class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </div>
+
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge">New Collection 2025</div>
+                <h1 class="hero-title">
+                    <span class="line"><span>Redefine</span></span>
+                    <span class="line"><span>Your <span class="accent">Style</span></span></span>
+                    <span class="line"><span>Revolution</span></span>
+                </h1>
+                <p class="hero-description">
+                    Discover our avant-garde collection where high fashion meets street culture. 
+                    Each piece tells a story of rebellion, elegance, and innovation.
+                </p>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <div class="hero-carousel">
+                        <div class="carousel-slide active">
+                            <img src="{% static 'images/noir-fashion-hero-01.avif' %}" alt="Fashion Model 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="{% static 'images/noir-fashion-hero-02.avif' %}" alt="Fashion Model 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="{% static 'images/noir-fashion-hero-03.avif' %}" alt="Fashion Model 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <div class="section-header">
+            <h2 class="section-title">Latest Collections</h2>
+        </div>
+
+        <div class="grid" id="collectionsGrid">
+            <div class="collection-card" data-category="women">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/urban-edge.avif' %}" alt="Urban Edge Women's Collection">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="limited">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/midnight-luxe.avif' %}" alt="Midnight Luxe Limited Edition">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="men">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/neo-classic.avif' %}" alt="Neo Classic Men's Essentials">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="accessories">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/accent-pieces.avif' %}" alt="Accent Pieces Accessories">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="women">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/spring-bloom.avif' %}" alt="Spring Bloom Women's Spring">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="men">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/street-rebel.avif' %}" alt="Street Rebel Men's Streetwear">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="limited">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/avant-garde.avif' %}" alt="Avant Garde Art Meets Fashion">
+                </div>
+            </div>
+
+            <div class="collection-card" data-category="accessories">
+                <div class="collection-thumbnail">
+                    <img src="{% static 'images/minimal-chic.avif' %}" alt="Minimal Chic Accessories">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="featured" id="featured">
+        <div class="featured-container">
+            <div class="featured-image-section">
+                <div class="featured-image-grid">
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-01.avif' %}" alt="Fashion Collection Showcase">
+                    </div>
+
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-02.avif' %}" alt="Luxury Fashion Details">
+                    </div>
+
+                    <div class="featured-img">
+                        <img src="{% static 'images/art-of-fashion-03.avif' %}" alt="Artisan Craftsmanship">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS -->
+    <script src="{% static 'index.js' %}"></script>
+
+</body>
+</html>
